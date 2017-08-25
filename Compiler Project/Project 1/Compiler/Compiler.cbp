@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c99" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c99" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -31,11 +33,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../Project 0/Compiler/DataType/LinkedList.c">
+		<Unit filename="Analyizer/MainAnalyzer.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../Project 0/Compiler/DataType/LinkedList.h" />
-		<Unit filename="../Project 0/Compiler/main.c">
+		<Unit filename="Analyizer/MainAnalyzer.h" />
+		<Unit filename="Analyizer/Print_Tokens/PrintHandler.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Analyizer/Print_Tokens/PrintHandler.h" />
+		<Unit filename="DataType/LinkedList.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="DataType/LinkedList.h" />
+		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1472060606 source:c:\users\anthony\desktop\programing\c work space\data structues proj 1\compiler\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1498337392 source:c:\users\anthony\desktop\compiler project\project 0\compiler\datatype\linkedlist.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"linkedlist.h"
+
+1498337255 c:\users\anthony\desktop\compiler project\project 0\compiler\datatype\linkedlist.h
+
+1498337970 source:c:\users\anthony\desktop\compiler project\project 0\compiler\main.c
+	<stdio.h>
+	<stdlib.h>
+	"DataType/LinkedList.h"
+	"Analyizer/MainAnalyzer.h"
+	"Analyizer/Print_Tokens/PrintHandler.h"
+
+1498338545 source:c:\users\anthony\desktop\compiler project\project 0\compiler\analyizer\mainanalyzer.c
+	<stdlib.h>
+	<stdio.h>
+	"../DataType/LinkedList.h"
+	"MainAnalyzer.h"
+
+1498337844 c:\users\anthony\desktop\compiler project\project 0\compiler\analyizer\mainanalyzer.h
+
+1498337551 source:c:\users\anthony\desktop\compiler project\project 0\compiler\analyizer\print_tokens\printhandler.c
+	<stdlib.h>
+	<stdio.h>
+	"../../DataType/LinkedList.h"
+	"PrintHandler.h"
+
+1498337121 c:\users\anthony\desktop\compiler project\project 0\compiler\analyizer\print_tokens\printhandler.h
+
