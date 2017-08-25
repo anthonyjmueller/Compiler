@@ -1,0 +1,85 @@
+0    ASSIGNOP
+1    FILEEND
+2    RELOP
+3    ID
+4    CONTROL
+5    ADDOP
+6    MULOP
+7    WS
+8    ARRAY
+9    TYPE
+10   VAR
+11   INT
+12   REAL
+13   PUNC
+14   GROUP
+15   INVERSE
+16   NOOP
+17   LEXERR
+      Line              Lexeme     Token Type     Token Attribute
+         1             program              4                   7
+         1                 fib              3      0x7f8dff4033c0
+         1                   (             14                   0
+         1               input              3      0x7f8dff403520
+         1                   ,             13                   0
+         1              output              3      0x7f8dff4036c0
+         1                   )             14                   1
+         1                   ;             13                   1
+         2                 var             10                   0
+         2excessivelyLongIntegerArrayName             17                   1
+         2                   :              9                   0
+         2               array              8                   0
+         2                   [             14                   2
+         2                   1             11                   1
+         2                  ..              8                   1
+         2                  12             11                  12
+         2                   ]             14                   3
+         2                  of              8                   2
+         2             integer              9                   1
+         2                   ;             13                   1
+         4               begin              4                   0
+         5                init              3      0x7f8dff4046c0
+         5                   ;             13                   1
+         6             writeln              3      0x7f8dff404900
+         6                   (             14                   0
+         6     123456789012345             17                   2
+         6                   )             14                   1
+         6                   ;             13                   1
+         7             writeln              3      0x7f8dff404900
+         7                   (             14                   0
+         7   123456.123456E003             17                  10
+         7   123456.123456E003             17                   5
+         7   123456.123456E003             17                   4
+         7   123456.123456E003             17                   3
+         7                   )             14                   1
+         7                   ;             13                   1
+         8              2.5E-2             12            0.025000
+         9               23.47             12           23.470000
+         9                   E              3      0x7f8dff405c00
+        10             writeln              3      0x7f8dff404900
+        10                   (             14                   0
+        10        01.456200E02             17                  10
+        10        01.456200E02             17                   9
+        10        01.456200E02             17                   8
+        10        01.456200E02             17                   4
+        10                   )             14                   1
+        10                   ;             13                   1
+        12                   4             11                   4
+        12                   E              3      0x7f8dff405c00
+        12                   +              5                   0
+        12                   .             13                   2
+        13                 3.4             12            3.400000
+        13                   E              3      0x7f8dff405c00
+        13                   +              5                   0
+        14                  34             11                  34
+        14                   E              3      0x7f8dff405c00
+        14                   .             13                   2
+        15                  E4              3      0x7f8dff406af0
+        15                   .             13                   2
+        15                   3             11                   3
+        16                   $             17                   0
+        16                   @             17                   0
+        17                 end              4                   3
+        17                   .             13                   2
+        17                   ?             17                   0
+        18                 EOF              1                   0

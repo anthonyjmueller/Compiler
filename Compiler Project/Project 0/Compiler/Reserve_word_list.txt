@@ -1,0 +1,21 @@
+program	PROGRAM null
+var	VAR	null
+array	ARRAY	null
+of	OF	null
+integer	INT	null
+real	REAL	null
+function	FUNCTION	null
+procedure	PROCEDURE	null
+begin	BEGIN	null
+end	END	null
+if	IF	null
+then	THEN	null
+else	ELSE	null
+while	WHILE	null
+do	DO	null
+div	MULOP	453
+mod	MULOP	454
+and	MULOP	455
+not	NOT	null
+or	ADDOP	463
+

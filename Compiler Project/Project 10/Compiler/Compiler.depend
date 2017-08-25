@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1472060606 source:c:\users\anthony\desktop\programing\c work space\data structues proj 1\compiler\main.c
+	<stdio.h>
+	<stdlib.h>
+

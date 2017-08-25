@@ -1,0 +1,123 @@
+\documentclass[titlepage]{article}
+\usepackage{fancyvrb}
+
+\newcommand{\ShowSourceFile}[2]
+{
+\VerbatimInput[fontsize=\footnotesize{}, frame=lines,label=#2]{#1}
+}
+% \RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+% {
+% fontsize=\footnotesize{},
+%
+%  frame=lines,  % top and bottom rule only
+%  framesep=2em, % separation between frame and text
+%  % rulecolor=\color{Gray},
+%
+%  % label=\fbox{\color{Black}data.txt},
+%  labelposition=topline
+% }
+
+\author{Nate Beckemeyer}
+\title{\textbf{CS 4013: Compiler Construction: Project 1}}
+\date{September 2016}
+
+
+
+\begin{document}
+    \maketitle
+    \section*{Introduction}
+    For Project 1, I wrote a lexical analyzer in C for Pascal. The purpose
+    of the lexical analyzer is to  break down the Pascal source code into
+    the parts needed to construct a parse tree. To achieve that goal, the
+    lexical analyzer identifies each lexeme in the code, such as the parts
+    of a type declaration, `:' and `integer' or `real', the beginning of a
+    program, `program', or perhaps the multiplication operator, `*'. It converts
+    this lexeme into a token that later parts of the compiler can readily use.
+
+    The user can specify a source document for the analyzer, and the
+    analyzer will create a listing file and a token file. The listing file
+    contains the source program, line-by-line, but points out any lexical
+    errors that occur. The token file contains the line number, the lexeme
+    corresponding to the token, the type of the token, and the attribute
+    value of the token.
+
+    \section{Methodology}
+    The lexical analyzer is simply a series of machines that parse the file.
+    The machines are Whitespace, ID/RES, LongRealMachine, RealMachine,
+    IntMachine, Grouping, CatchAll, RELOP, ADDOP, and MULOP\@.
+    These machines break down the file into its corresponding tokens, which are
+    output to a file. A loop repeats this process until an end of file token is
+    encountered.
+
+    If errors in the source program are encountered while parsing, the machines
+    will send an error. The error will be displayed beneath the corresponding
+    line in the listing file and passed as a token to the token file.
+
+    \section{Implementation}
+    The reserved words, special to the subset of the Pascal language
+    that we're studying, are loaded in from a file at the start of the
+    program, along with the proper token category and type, should the
+    word be encountered during parsing.
+
+    The Whitespace machine matches all whitespace, and returns the appropriate
+    token. This token is usually ignored, except for newline characters, which
+    are used to update listing and token file information. The ID/RES machine
+    matches reserved words and IDs from the symbol table. If a word that could
+    be used as an ID has not been encountered before, it will be added to the
+    symbol table. The NumMachine matches numbers: ints, reals, and long reals.
+    The Grouping machine matches certain ``grouping'' punctation, such as opening
+    and closing parentheses and brackets. The CatchAll machine catches various
+    punctuation series. The RELOP machine matches relative (comparative)
+    operations, the ADDOP machine matches adding operations (including `or'),
+    and the MULOP machine matches multiplicative operations operations
+    (including `and').
+
+    The machines are evaluated in the order in which they were specified above.
+    The machines are passed a token, a string, and a starting point in that
+    string. If the machine matches the token, it updates the token's type,
+    attribute, and givens the location of the corresponding lexeme. Regardless,
+    it returns the new location of the pointer in the string. That location
+    may be the same, if no match were found; however, if a match were discovered,
+    this update will signify that a valid token has been generated, and
+    there is no need to throw an error.
+
+    If any errors are encountered while parsing, the error will be added
+    to a queue. Once the generated token is returned (or an error signifying an
+    unrecognized symbol is given), then all of the errors in the queue will
+    be pulled and displayed in the listing file, and in the token file.
+
+    \section{Discussion \& Conclusions}
+    The analyzer involved learning a lot about C. I'm glad that I took the
+    opportunity to try to do this project in this language.
+
+    One aspect of this project that I'm particularly proud of is that it will
+    identify all errors in a single lexeme, rather than just one. Ultimately,
+    that difference will make life much easier for the programmer.
+
+    I wrote this compiler in C, with no external code of any kind. It was
+    compiled with clang on macOS Sierra.
+
+    \clearpage{}
+    \section*{Appendix 1: Sample Inputs and Outputs} % Input and output files.
+    \ShowSourceFile{../../compiler/reswords.dat}{Reserved Words}
+    \subsection{Error-Filled Source File}
+    \ShowSourceFile{appendix1/error/errors.pas}{Error Source Code}
+    \ShowSourceFile{appendix1/error/listing.txt}{Error Listing File}
+    \ShowSourceFile{appendix1/error/tokens.dat}{Error Token File}
+
+    \clearpage{}
+    \subsection{Error-Free Source File}
+    \ShowSourceFile{appendix1/correct/fib.pas}{Correct Source Code}
+    \ShowSourceFile{appendix1/correct/listing.txt}{Correct Listing File}
+    \ShowSourceFile{appendix1/correct/tokens.dat}{Correct Token File}
+
+    \clearpage{}
+    \section*{Appendix 2: Program Listings}
+    \ShowSourceFile{code/dataStructures/linkedList/linkedList.c}{LinkedList.c}
+    \ShowSourceFile{code/dataStructures/linkedList/linkedList.h}{LinkedList.h}
+    \ShowSourceFile{code/machines/processor.h}{Processor.h}
+    \ShowSourceFile{code/machines/processor.c}{Processor.c}
+    \ShowSourceFile{code/lexicalanalyzer.h}{LexicalAnalyzer.h}
+    \ShowSourceFile{code/lexicalanalyzer.c}{LexicalAnalyzer.c}
+
+\end{document}

@@ -1,0 +1,43 @@
+         1		program fib(input, output);
+         2		var n, p: integer;
+         3		var q: real;
+         4		var numsArray : array [1..12] of integer;
+         5		
+         6		function fib(a : integer; b, c : real) : real;
+         7		begin
+         8		    if a <= 1 then fib := c
+         9		    else fib := fib(a - 1, c, b + c)
+        10		end;
+        11		
+        12		function fib2(a : integer) : integer;
+        13		var b, c, sum : integer;
+        14		begin
+        15		  a := a - 1;
+        16		  b := 0;
+        17		  sum := 1;
+        18		  c := b;
+        19		  while (a > 0) do
+        20		    begin
+        21		      a := a - 1;
+        22		      b := sum;
+        23		      sum := c + sum;
+        24		      c := b
+        25		    end;
+        26		  fib2 := sum;
+        27		end;
+        28		
+        29		procedure init();
+        30		begin
+        31		  n := 12;
+        32		  if (1 and 2) or 3 then p := 12
+        33		  else p := 14;
+        34		  numsArray[3] := 15.56;
+        35		  q := 12
+        36		end;
+        37		
+        38		begin
+        39		    init;
+        40		    writeln(+fib(n, 0, 1)*q/p + 4);
+        41		    writeln(fib2(n));
+        42		    writeln(numsArray[3])
+        43		end.
